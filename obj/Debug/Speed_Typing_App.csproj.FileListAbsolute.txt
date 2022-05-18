@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\Speed_Typing_App.exe.config
+C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\Speed_Typing_App.exe
+C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\Speed_Typing_App.pdb
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Properties.Resources.resources
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.exe
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.pdb
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.resources
