@@ -8,3 +8,14 @@ C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.Co
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.exe
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.pdb
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\Speed_Typing_App.exe.config
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\Speed_Typing_App.exe
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\Speed_Typing_App.pdb
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.AssemblyReference.cache
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.SuggestedBindingRedirects.cache
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Properties.Resources.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.GenerateResource.cache
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.CoreCompileInputs.cache
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.exe
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.pdb
