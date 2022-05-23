@@ -86,10 +86,16 @@ namespace Speed_Typing_App
             if (sub == input.Text)
             { 
                 sub.ToCharArray();
-                foreach(char c in sub)
-                if (c==' ')
+                foreach (char c in sub) 
                 {
+                    if (c == ' ')
+                    {
                         input.wordcount++;
+                    }
+                    if (c==' '&&c+1==' ')
+                    {
+                        
+                    }
                 }
                 TextPanel.BackColor = Color.Green;
             }
@@ -104,7 +110,7 @@ namespace Speed_Typing_App
 
         public class TextToPrint
         {
-            public string TextTPrint { get; set; } = "I love eat little childs and fuck kakashka ";
+            public string TextTPrint { get; set; } = "I love eat little childs and fuck kakashka. ";
             
         }
         public class Input
