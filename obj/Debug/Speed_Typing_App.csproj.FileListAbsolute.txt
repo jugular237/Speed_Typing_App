@@ -60,3 +60,9 @@ C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.en-
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.ru-UA.resources
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\en-US\Speed_Typing_App.resources.dll
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\ru-UA\Speed_Typing_App.resources.dll
+C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\en-NA\Speed_Typing_App.resources.dll
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.en-NA.resources
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\en-NA\Speed_Typing_App.resources.dll
+C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\ja-JP\Speed_Typing_App.resources.dll
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.ja-JP.resources
+C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\ja-JP\Speed_Typing_App.resources.dll

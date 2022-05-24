@@ -22,6 +22,7 @@ namespace Speed_Typing_App
         int ticks1 = 0;
         bool flag = true;
         int misc = 0;
+        bool lang=false;
         public Form1()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -33,7 +34,7 @@ namespace Speed_Typing_App
        
         public class TextToPrint
         {
-            public string TextTPrint { get; set; } = "геге)))";
+            public string TextTPrint { get; set; } = "геге гегеге";
             public int SymbCount = 0;
         }
         public class Input
@@ -50,7 +51,7 @@ namespace Speed_Typing_App
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            ShowText();
             TextToPrint textToPrnt = new TextToPrint();
             TextPanel.Text = textToPrnt.TextTPrint;
             TextPanel.ReadOnly = true;
@@ -185,27 +186,51 @@ namespace Speed_Typing_App
             Form2 f = new Form2();
             f.Show();
         }
-
-        private void EnglishButton_Click(object sender, EventArgs e)
+        public void ShowText()
         {
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == "uk-UA")
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }
-            else
+            //if(languages.SelectedIndex == 2)
+            //    languages.Text = "日本";
+            //else if(languages.SelectedIndex == 1)
+            //    languages.Text = "English";
+            //else if (languages.SelectedIndex == 1)
+            //    languages.Text = "English";
+           
+           languages.Text = "Обрати мову";
+        }
+        
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lang = true;
+            if (languages.SelectedIndex == 0 && lang)
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk-UA");
                 System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("uk-UA");
                 Properties.Settings.Default.Language = "uk-UA";
                 Properties.Settings.Default.Save();
                 Application.Restart();
+                languages.Text = "Українська";
             }
-
-
+            else if (languages.SelectedIndex == 1)
+                {
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+                    System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+                    Properties.Settings.Default.Language = "en-US";
+                    Properties.Settings.Default.Save();
+                    Application.Restart();
+                    languages.Text = "English";
+                }
+                else if (languages.SelectedIndex == 2)
+                {
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
+                    System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
+                    Properties.Settings.Default.Language = "ja-JP";
+                    Properties.Settings.Default.Save();
+                    Application.Restart();
+                    languages.Text = "日本";
+                }
+            
         }
     }
 }
