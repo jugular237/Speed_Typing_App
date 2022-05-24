@@ -19,3 +19,16 @@ C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typi
 C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.CoreCompileInputs.cache
 C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.exe
 C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.pdb
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.asa-TZ.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.lkt-US.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\asa-TZ\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\lkt-US\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\asa-TZ\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\lkt-US\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\uk-UA\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.uk-UA.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\uk-UA\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\bin\Debug\en\Speed_Typing_App.resources.dll
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form2.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form1.en.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\en\Speed_Typing_App.resources.dll

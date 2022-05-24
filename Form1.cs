@@ -17,13 +17,14 @@ namespace Speed_Typing_App
 
     public partial class Form1 : Form
     {
+        
         int ticks = 6;
         int ticks1 = 0;
         bool flag = true;
         int misc = 0;
         public Form1()
         {
-                InitializeComponent();
+            InitializeComponent();
         }
        
         public class TextToPrint
@@ -163,9 +164,11 @@ namespace Speed_Typing_App
             Application.Restart();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+       
+        private void button3_Click_1(object sender, EventArgs e)
         {
-
+            Form2 f = new Form2();
+            f.Show();
         }
     }
 }
