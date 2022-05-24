@@ -324,16 +324,10 @@
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 55</value>
   </data>
-  <data name="button3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
-  </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
     <value>671, 411</value>
   </data>
   <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 64</value>
-  </data>
-  <data name="button3.Text" xml:space="preserve">
-    <value>Таблиця рекордів</value>
   </data>
 </root>

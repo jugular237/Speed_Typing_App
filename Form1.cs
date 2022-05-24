@@ -24,12 +24,16 @@ namespace Speed_Typing_App
         int misc = 0;
         public Form1()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture
+               = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            System.Threading.Thread.CurrentThread.CurrentCulture 
+                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
        
         public class TextToPrint
         {
-            public string TextTPrint { get; set; } = "I like eat little childs and i love shasha mandrik";
+            public string TextTPrint { get; set; } = "геге)))";
             public int SymbCount = 0;
         }
         public class Input
@@ -46,6 +50,7 @@ namespace Speed_Typing_App
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             TextToPrint textToPrnt = new TextToPrint();
             TextPanel.Text = textToPrnt.TextTPrint;
             TextPanel.ReadOnly = true;
@@ -56,7 +61,8 @@ namespace Speed_Typing_App
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(Text, new Font("Times new Roman", 46, FontStyle.Regular), Brushes.Black, new PointF(50, 50));
+            e.Graphics.DrawString(Text, new Font("Times new Roman", 46, FontStyle.Regular), 
+                Brushes.Black, new PointF(50, 50));
 
         }
 
@@ -109,12 +115,15 @@ namespace Speed_Typing_App
             timer1.Start();
 
         }
+        string text1 = "";
+        int length = 0;
         void ChangeClr1(RichTextBox TextPanel, Input input)
         {
             TextToPrint textToPrnt = new TextToPrint();
             input.Text = textBox1.Text;
             int lng = input.Text.Length;
             string sub=textToPrnt.TextTPrint.Substring(0, lng);
+            string text2 = input.Text;
             if (sub == input.Text)
             {
                 sub.ToCharArray();
@@ -125,21 +134,27 @@ namespace Speed_Typing_App
                         input.wordcount++;
                     }
                 }
-                //MessageBox.Show("end");
                 TextPanel.BackColor = Color.LightGreen;
             }
             else if(sub!= input.Text)
             {
-                misc++;
                 TextPanel.BackColor = Color.LightCoral;
+                
+                if (text1 != text2 && length > lng)
+                {
+                    misc ++;
+                }
             }
-            
+            text1 = input.Text;
+            length = lng;
         }
         void CheckOnEnd(Input input)
         {
             input.Text = textBox1.Text;
             TextToPrint textToPrnt = new TextToPrint();
-            if (input.Text.Length == textToPrnt.TextTPrint.Length && input.Text == textToPrnt.TextTPrint && flag == true)
+            if (input.Text.Length == textToPrnt.TextTPrint.Length 
+                && input.Text == textToPrnt.TextTPrint 
+                && flag == true)
             {
                 flag = false;
                 timer1.Stop();
@@ -150,8 +165,8 @@ namespace Speed_Typing_App
         }
         void Print(Input input)
         {
-            label5.Visible = true;
-            label5.Text = misc.ToString();
+            if (misc > 0)
+                misc++;
             TextToPrint textToPrnt = new TextToPrint();
             double correlem = textToPrnt.TextTPrint.Length - misc;
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
@@ -169,6 +184,28 @@ namespace Speed_Typing_App
         {
             Form2 f = new Form2();
             f.Show();
+        }
+
+        private void EnglishButton_Click(object sender, EventArgs e)
+        {
+            if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == "uk-UA")
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+                Properties.Settings.Default.Language = "en-US";
+                Properties.Settings.Default.Save();
+                Application.Restart();
+            }
+            else
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk-UA");
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("uk-UA");
+                Properties.Settings.Default.Language = "uk-UA";
+                Properties.Settings.Default.Save();
+                Application.Restart();
+            }
+
+
         }
     }
 }
