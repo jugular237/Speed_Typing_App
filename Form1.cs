@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 
 
 namespace Speed_Typing_App
@@ -22,14 +23,31 @@ namespace Speed_Typing_App
         bool lang=false;
         public Form1()
         {
-
             System.Threading.Thread.CurrentThread.CurrentUICulture
                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             System.Threading.Thread.CurrentThread.CurrentCulture 
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
-       
+        public class Result
+        {
+            public double wpmRes;
+
+            public readonly DateTime date;
+
+            public Result(double wpm, DateTime date)
+            {
+                wpmRes = wpm;
+                this.date = date;
+            }
+        }
+
+        public struct Records
+        {
+            public double result1;
+            public double result2;
+            public double result3;
+        }
         public class TextToPrint
         {
             public string TextTPrint { get; set; }
@@ -167,6 +185,29 @@ namespace Speed_Typing_App
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
             double wpm = (((input.wordcount + 1)/input.Time)*60);
             MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
+            CheckOnRecord(wpm);
+        }
+        public string recordsText = "";
+        void CheckOnRecord(double wpm)
+        {
+            Result result = new Result((double)wpm, DateTime.Now);
+            double wpmResult = result.wpmRes;
+            Records records;
+            records.result1 = 50;
+            records.result2 = 30;
+            records.result3 = 10;
+            Type myType = typeof(Records);
+            foreach(FieldInfo fieldinfo in myType.GetFields())
+            {
+               var value = (double)fieldinfo.GetValue(records);
+               if(wpmResult > value)
+               {
+                    fieldinfo.SetValue(records, wpmResult);
+               }
+                recordsText += $"{DateTime.Now} : {fieldinfo.GetValue(records)}\n";
+            }
+            File.WriteAllText("records.txt", recordsText);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -175,26 +216,19 @@ namespace Speed_Typing_App
         }
 
        
-        private void button3_Click_1(object sender, EventArgs e)
+        private void RecordsButton_Click_1(object sender, EventArgs e)
         {
-            Form2 f = new Form2();
-            f.Show();
+            Form2 form2 = new Form2();
+            form2.Show();
+           
         }
         public void ShowText()
         {
-            //if(languages.SelectedIndex == 2)
-            //    languages.Text = "日本";
-            //else if(languages.SelectedIndex == 1)
-            //    languages.Text = "English";
-            //else if (languages.SelectedIndex == 1)
-            //    languages.Text = "English";
-           
            languages.Text = "Обрати мову";
         }
         void GenerateSent()
         {
-            string path = @"c:\Users\bakma\source\repos\курсова\text.txt";
-            string[] readText = File.ReadAllLines(path);
+            string[] readText = File.ReadAllLines("text.txt");
             Random random = new Random();
             int i = random.Next(readText.Length);
             textToPrnt.TextTPrint=readText[i];
@@ -214,23 +248,23 @@ namespace Speed_Typing_App
                 languages.Text = "Українська";
             }
             else if (languages.SelectedIndex == 1)
-                {
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                    System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                    Properties.Settings.Default.Language = "en-US";
-                    Properties.Settings.Default.Save();
-                    Application.Restart();
-                    languages.Text = "English";
-                }
-                else if (languages.SelectedIndex == 2)
-                {
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
-                    System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
-                    Properties.Settings.Default.Language = "ja-JP";
-                    Properties.Settings.Default.Save();
-                    Application.Restart();
-                    languages.Text = "日本";
-                }   
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+                Properties.Settings.Default.Language = "en-US";
+                Properties.Settings.Default.Save();
+                Application.Restart();
+                languages.Text = "English";
+            }
+            else if (languages.SelectedIndex == 2)
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
+                Properties.Settings.Default.Language = "ja-JP";
+                Properties.Settings.Default.Save();
+                Application.Restart();
+                languages.Text = "日本";
+            }   
         }
             
         

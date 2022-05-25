@@ -21,16 +21,29 @@ namespace Speed_Typing_App
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            PrintRecords();
+            
+        }
+
+        private void PrintRecords()
+        {
+            string[] recordsLines = File.ReadAllLines("records.txt");
+            foreach (string line in recordsLines)
+            {
+                RecordsBox.Text += line + "\n";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            string path = @"c:\Users\bakma\source\repos\курсова\text.txt";
-            string[] readText = File.ReadAllLines(path);
-           Random random = new Random();
-           int i=random.Next(readText.Length);
-           richTextBox1.Text=readText[i];
+           //string[] readText = File.ReadAllLines("text.txt");   <- нашо це?
+           //Random random = new Random();
+           //int i=random.Next(readText.Length);
+           //RecordsBox.Text=readText[i];
+        }
+
+        private void RecordsBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
