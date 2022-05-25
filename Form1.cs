@@ -4,12 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
-
+using System.IO;
 
 
 namespace Speed_Typing_App
@@ -17,7 +15,6 @@ namespace Speed_Typing_App
 
     public partial class Form1 : Form
     {
-        
         int ticks = 6;
         int ticks1 = 0;
         bool flag = true;
@@ -25,6 +22,7 @@ namespace Speed_Typing_App
         bool lang=false;
         public Form1()
         {
+
             System.Threading.Thread.CurrentThread.CurrentUICulture
                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             System.Threading.Thread.CurrentThread.CurrentCulture 
@@ -34,7 +32,7 @@ namespace Speed_Typing_App
        
         public class TextToPrint
         {
-            public string TextTPrint { get; set; } = "геге гегеге";
+            public string TextTPrint { get; set; }
             public int SymbCount = 0;
         }
         public class Input
@@ -49,11 +47,10 @@ namespace Speed_Typing_App
                 set { time = value; }
             }
         }
+        TextToPrint textToPrnt = new TextToPrint();
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowText();
-            TextToPrint textToPrnt = new TextToPrint();
-            TextPanel.Text = textToPrnt.TextTPrint;
             TextPanel.ReadOnly = true;
             textBox1.ReadOnly = true;
             label2.Visible = false;
@@ -106,7 +103,6 @@ namespace Speed_Typing_App
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
-            TextToPrint textToPrnt = new TextToPrint();
             ticks1++;
             timer2.Interval = 1000;
             label2.Text = ticks1.ToString();
@@ -114,13 +110,13 @@ namespace Speed_Typing_App
         private void button1_Click(object sender, EventArgs e)
         {
             timer1.Start();
-
+            GenerateSent();
+            TextPanel.Text = textToPrnt.TextTPrint;
         }
         string text1 = "";
         int length = 0;
         void ChangeClr1(RichTextBox TextPanel, Input input)
         {
-            TextToPrint textToPrnt = new TextToPrint();
             input.Text = textBox1.Text;
             int lng = input.Text.Length;
             string sub=textToPrnt.TextTPrint.Substring(0, lng);
@@ -152,7 +148,6 @@ namespace Speed_Typing_App
         void CheckOnEnd(Input input)
         {
             input.Text = textBox1.Text;
-            TextToPrint textToPrnt = new TextToPrint();
             if (input.Text.Length == textToPrnt.TextTPrint.Length 
                 && input.Text == textToPrnt.TextTPrint 
                 && flag == true)
@@ -168,7 +163,6 @@ namespace Speed_Typing_App
         {
             if (misc > 0)
                 misc++;
-            TextToPrint textToPrnt = new TextToPrint();
             double correlem = textToPrnt.TextTPrint.Length - misc;
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
             double wpm = (((input.wordcount + 1)/input.Time)*60);
@@ -197,7 +191,14 @@ namespace Speed_Typing_App
            
            languages.Text = "Обрати мову";
         }
-        
+        void GenerateSent()
+        {
+            string path = @"c:\Users\bakma\source\repos\курсова\text.txt";
+            string[] readText = File.ReadAllLines(path);
+            Random random = new Random();
+            int i = random.Next(readText.Length);
+            textToPrnt.TextTPrint=readText[i];
+        }
 
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,9 +230,11 @@ namespace Speed_Typing_App
                     Properties.Settings.Default.Save();
                     Application.Restart();
                     languages.Text = "日本";
-                }
-            
+                }   
         }
+            
+        
+
     }
 }
     
