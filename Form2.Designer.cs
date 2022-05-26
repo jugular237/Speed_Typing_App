@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.RecordsBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // Exit
             // 
-            this.button1.Location = new System.Drawing.Point(148, 338);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(293, 134);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Exit.Location = new System.Drawing.Point(148, 338);
+            this.Exit.Margin = new System.Windows.Forms.Padding(4);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(293, 134);
+            this.Exit.TabIndex = 1;
+            this.Exit.Text = "button1";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // RecordsBox
             // 
@@ -60,7 +60,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(609, 554);
             this.Controls.Add(this.RecordsBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -70,7 +70,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox RecordsBox;
+        private System.Windows.Forms.Button Exit;
+        public System.Windows.Forms.RichTextBox RecordsBox;
     }
 }

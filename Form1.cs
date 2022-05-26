@@ -21,6 +21,9 @@ namespace Speed_Typing_App
         bool flag = true;
         int misc = 0;
         bool lang=false;
+        Form2 form2 = new Form2();
+        Records records;
+        DateTime[] dt = new DateTime[3];
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +47,7 @@ namespace Speed_Typing_App
             public double result2;
             public double result3;
         }
+        
         public class TextToPrint
         {
             public string TextTPrint { get; set; }
@@ -181,29 +185,35 @@ namespace Speed_Typing_App
             double correlem = textToPrnt.TextTPrint.Length - misc;
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
             double wpm = (((input.wordcount + 1)/input.Time)*60);
-            MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
             CheckOnRecord(wpm);
+            MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
         }
         public string recordsText = "";
-        void CheckOnRecord(double wpm)
+        public void CheckOnRecord(double wpm)
         {
+            string[] lines = new string[3];
+            bool resultInTop = false;
             Result result = new Result((double)wpm, DateTime.Now);
             double wpmResult = result.wpmRes;
-            Records records;
-            records.result1 = 50;
-            records.result2 = 30;
-            records.result3 = 10;
             Type myType = typeof(Records);
+            int index = 0;
             foreach(FieldInfo fieldinfo in myType.GetFields())
             {
                var value = (double)fieldinfo.GetValue(records);
-               if(wpmResult > value)
-               {
+                if (wpmResult > value && !resultInTop)
+                {
+                    dt[index] = result.date;
+                    resultInTop = true;
                     fieldinfo.SetValue(records, wpmResult);
-               }
-                recordsText += $"{DateTime.Now} : {fieldinfo.GetValue(records)}\n";
+                    lines[index] =$"{result.date} : {(int)wpmResult+1} wpm\n";
+                }
+                else if (Math.Round((double)fieldinfo.GetValue(records)) == 0)
+                    continue;
+                else
+                    lines[index] = $"{dt[index]} : {Math.Round((double)fieldinfo.GetValue(records))+1} wpm\n";
+                index++;
             }
-            File.WriteAllText("records.txt", recordsText);
+            File.WriteAllLines("records.txt", lines);
             
         }
 
@@ -212,12 +222,19 @@ namespace Speed_Typing_App
             Application.Restart();
         }
 
-       
+        public void PrintRecords()
+        {
+            
+            string[] recordsLines = File.ReadAllLines("records.txt");
+            foreach (string line in recordsLines)
+            {
+                form2.RecordsBox.Text += line + "\n";
+            }
+        }
         private void RecordsButton_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
             form2.Show();
-           
+            PrintRecords();
         }
         public void ShowText()
         {
@@ -263,9 +280,13 @@ namespace Speed_Typing_App
                 languages.Text = "日本";
             }   
         }
-            
         
-
+        private void ReturnToMenu_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            this.Hide();
+            form3.Show();
+        }
     }
 }
     

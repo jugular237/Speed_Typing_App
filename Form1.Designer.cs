@@ -45,6 +45,7 @@ namespace Speed_Typing_App
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.languages = new System.Windows.Forms.ComboBox();
+            this.ReturnToMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // printDocument1
@@ -131,11 +132,19 @@ namespace Speed_Typing_App
             this.languages.Name = "languages";
             this.languages.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // ReturnToMenu
+            // 
+            resources.ApplyResources(this.ReturnToMenu, "ReturnToMenu");
+            this.ReturnToMenu.Name = "ReturnToMenu";
+            this.ReturnToMenu.UseVisualStyleBackColor = true;
+            this.ReturnToMenu.Click += new System.EventHandler(this.ReturnToMenu_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Controls.Add(this.ReturnToMenu);
             this.Controls.Add(this.languages);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -170,6 +179,7 @@ namespace Speed_Typing_App
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox languages;
+        private System.Windows.Forms.Button ReturnToMenu;
     }
 }
 
