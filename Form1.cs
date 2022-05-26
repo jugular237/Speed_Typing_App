@@ -23,10 +23,6 @@ namespace Speed_Typing_App
         bool lang=false;
         public Form1()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture
-               = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-            System.Threading.Thread.CurrentThread.CurrentCulture 
-                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
         public class Result
@@ -127,6 +123,7 @@ namespace Speed_Typing_App
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            label4.Visible = true;
             timer1.Start();
             GenerateSent();
             TextPanel.Text = textToPrnt.TextTPrint;
