@@ -36,9 +36,6 @@ namespace Speed_Typing_App
         {
             Form2 form2 = new Form2();
             form2.Show();
-            form1.PrintRecords();
-            this.Hide();
-           
         }
 
         private void languages_SelectedIndexChanged(object sender, EventArgs e)

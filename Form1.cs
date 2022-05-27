@@ -22,15 +22,13 @@ namespace Speed_Typing_App
         int misc = 0;
         bool lang=false;
         Form2 form2 = new Form2();
-        Records records;
-        DateTime[] dt = new DateTime[3];
         public Form1()
         {
             InitializeComponent();
         }
         public class Result
         {
-            public double wpmRes;
+            public readonly double wpmRes;
 
             public readonly DateTime date;
 
@@ -188,33 +186,28 @@ namespace Speed_Typing_App
             CheckOnRecord(wpm);
             MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
         }
-        public string recordsText = "";
+       
+        string[] lines = File.ReadAllLines("records.txt");
         public void CheckOnRecord(double wpm)
         {
-            string[] lines = new string[3];
-            bool resultInTop = false;
+            ReadRecordsFile();
             Result result = new Result((double)wpm, DateTime.Now);
             double wpmResult = result.wpmRes;
-            Type myType = typeof(Records);
-            int index = 0;
-            foreach(FieldInfo fieldinfo in myType.GetFields())
+            for(int i=0; i< lines.Length; i++)
             {
-               var value = (double)fieldinfo.GetValue(records);
-                if (wpmResult > value && !resultInTop)
+                string[] words = lines[i].Split(' ');
+                int number = int.Parse(words[0]);
+                if (wpmResult > number)
                 {
-                    dt[index] = result.date;
-                    resultInTop = true;
-                    fieldinfo.SetValue(records, wpmResult);
-                    lines[index] =$"{result.date} : {(int)wpmResult+1} wpm\n";
+                    lines[i] = $"{(int)wpmResult} wpm : {result.date.ToShortDateString()}";
+                    break;
                 }
-                else if (Math.Round((double)fieldinfo.GetValue(records)) == 0)
-                    continue;
-                else
-                    lines[index] = $"{dt[index]} : {Math.Round((double)fieldinfo.GetValue(records))+1} wpm\n";
-                index++;
             }
             File.WriteAllLines("records.txt", lines);
-            
+        }
+        public void ReadRecordsFile()
+        {
+            lines = File.ReadAllLines("records.txt");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -224,7 +217,6 @@ namespace Speed_Typing_App
 
         public void PrintRecords()
         {
-            
             string[] recordsLines = File.ReadAllLines("records.txt");
             foreach (string line in recordsLines)
             {
