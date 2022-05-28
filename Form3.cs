@@ -31,11 +31,18 @@ namespace Speed_Typing_App
             form1.Show();
             this.Hide();
         }
-
+    
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
+            string[] recordsLines = File.ReadAllLines("records.txt");
+            foreach (string line in recordsLines)
+            {
+                form2.RecordsBox.Text += line + "\n";
+            }
+            form2.RecordsBox.ReadOnly = true;
+            form2.label1.Focus();
         }
 
         private void languages_SelectedIndexChanged(object sender, EventArgs e)

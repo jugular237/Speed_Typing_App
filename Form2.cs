@@ -29,9 +29,7 @@ namespace Speed_Typing_App
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Form2 form2 = new Form2();
-            //form2.Show();
+           
         }
 
         private void RecordsBox_TextChanged(object sender, EventArgs e)

@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using System.Threading;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
-
+using System.Collections.Generic;
 
 namespace Speed_Typing_App
 {
@@ -37,13 +31,6 @@ namespace Speed_Typing_App
                 wpmRes = wpm;
                 this.date = date;
             }
-        }
-
-        public struct Records
-        {
-            public double result1;
-            public double result2;
-            public double result3;
         }
         
         public class TextToPrint
@@ -188,22 +175,38 @@ namespace Speed_Typing_App
         }
        
         string[] lines = File.ReadAllLines("records.txt");
+        string[] linesToWrite = new string[7];
         public void CheckOnRecord(double wpm)
         {
-            ReadRecordsFile();
+            List<string> list = new List<string>();
+            bool swap = false;
+            int number;
             Result result = new Result((double)wpm, DateTime.Now);
-            double wpmResult = result.wpmRes;
-            for(int i=0; i< lines.Length; i++)
+            lines.CopyTo(linesToWrite, 0);
+            ReadRecordsFile();
+            for (int i=0; i< linesToWrite.Length; i++)
             {
-                string[] words = lines[i].Split(' ');
-                int number = int.Parse(words[0]);
-                if (wpmResult > number)
+                number=0;
+                if (!string.IsNullOrEmpty(linesToWrite[i]))
                 {
-                    lines[i] = $"{(int)wpmResult} wpm : {result.date.ToShortDateString()}";
-                    break;
+                    string[] words = linesToWrite[i].Split(' ');
+                    number = int.Parse(words[0]);
+                }
+                if (swap)
+                {
+                    list.Add(linesToWrite[i-1]);
+                }
+                if (result.wpmRes > number && !swap)
+                {
+                    swap = true;
+                    list.Add($"{(int)result.wpmRes} wpm : {result.date.ToShortDateString()}");
+                }
+                else if (!swap)
+                {
+                    list.Add(linesToWrite[i]);
                 }
             }
-            File.WriteAllLines("records.txt", lines);
+            File.WriteAllLines("records.txt", list);
         }
         public void ReadRecordsFile()
         {
