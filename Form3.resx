@@ -198,6 +198,9 @@
   <data name="languages.Items" xml:space="preserve">
     <value>Українська</value>
   </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 20.25pt</value>
+  </data>
   <data name="languages.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
@@ -210,11 +213,11 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>336, 59</value>
   </data>
+  <data name="&gt;&gt;startButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="&gt;&gt;languages.Name" xml:space="preserve">
-    <value>languages</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form3</value>
@@ -255,8 +258,8 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>408, 21</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Main Menu</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -285,8 +288,14 @@
   <data name="&gt;&gt;languages.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;start2Button.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -297,14 +306,8 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form3</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -312,11 +315,11 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;languages.Name" xml:space="preserve">
+    <value>languages</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="startButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Snap ITC, 14.25pt</value>
@@ -324,20 +327,17 @@
   <data name="start2Button.Font" type="System.Drawing.Font, System.Drawing">
     <value>Snap ITC, 14.25pt</value>
   </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Stencil, 20.25pt</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Main Menu</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>405, 299</value>
   </data>
-  <data name="&gt;&gt;languages.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;startButton.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -348,8 +348,8 @@
   <data name="&gt;&gt;startButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;startButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;languages.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>798, 419</value>

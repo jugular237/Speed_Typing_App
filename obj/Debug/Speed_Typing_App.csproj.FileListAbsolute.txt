@@ -101,3 +101,7 @@ C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.res
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.en-US.resources
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.ja-JP.resources
 C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.uk-UA.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form4.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form4.en-US.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form4.ja-JP.resources
+C:\Users\bakma\source\repos\КУРСОВА\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form4.uk-UA.resources

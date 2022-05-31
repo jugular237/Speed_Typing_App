@@ -125,7 +125,7 @@
     <value>15, 254</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>688, 223</value>
+    <value>530, 247</value>
   </data>
   <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -304,7 +304,7 @@
     <value>15, 15</value>
   </data>
   <data name="TextPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>688, 226</value>
+    <value>530, 226</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 508</value>
@@ -314,75 +314,78 @@
     <value>5, 5, 5, 5</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>391, 68</value>
+    <value>360, 68</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>始める</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>735, 295</value>
+    <value>564, 295</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>723, 49</value>
+    <value>564, 49</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>711, 18</value>
+    <value>552, 18</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 29</value>
+    <value>143, 24</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>経過時間（秒）：</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>723, 254</value>
+    <value>552, 254</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 29</value>
+    <value>77, 24</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>最初に：</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>423, 508</value>
+    <value>385, 508</value>
   </data>
   <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 68</value>
+    <value>160, 68</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
     <value>アップデート</value>
   </data>
-  <data name="button3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="button3.Text" xml:space="preserve">
-    <value>レコードの表</value>
-  </data>
   <data name="languages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>867, 465</value>
+    <value>782, 326</value>
   </data>
   <data name="languages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 24</value>
+    <value>200, 21</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>867, 400</value>
+  <data name="languages.Text" xml:space="preserve">
+    <value>言語を選択してください</value>
   </data>
-  <data name="button4.Text" xml:space="preserve">
-    <value>戻る</value>
+  <data name="ReturnToMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>782, 504</value>
+  </data>
+  <data name="ReturnToMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 72</value>
+  </data>
+  <data name="ReturnToMenu.Text" xml:space="preserve">
+    <value>メニューを終了します</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>988, 580</value>
   </data>
 </root>

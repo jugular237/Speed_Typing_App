@@ -15,8 +15,7 @@ namespace Speed_Typing_App
 {
     public partial class Form3 : Form
     {
-        bool lang = false;
-        Form1 form1 = new Form1();
+      
         public Form3()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -25,7 +24,9 @@ namespace Speed_Typing_App
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
-
+        bool lang = false;
+        Form1 form1 = new Form1();
+        Form4 form4 = new Form4();
         private void startButton_Click(object sender, EventArgs e)
         {
             form1.Show();
@@ -80,6 +81,12 @@ namespace Speed_Typing_App
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void start2Button_Click(object sender, EventArgs e)
+        {
+            form4.Show();
+            this.Hide();
         }
     }
 }

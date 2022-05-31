@@ -122,7 +122,7 @@
     <value>13, 270</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>684, 222</value>
+    <value>528, 222</value>
   </data>
   <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -301,7 +301,7 @@
     <value>13, 7</value>
   </data>
   <data name="TextPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>684, 238</value>
+    <value>528, 238</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -314,43 +314,43 @@
     <value>5, 5, 5, 5</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>435, 89</value>
+    <value>342, 81</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 310</value>
+    <value>556, 310</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>713, 50</value>
+    <value>556, 46</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>705, 11</value>
+    <value>548, 7</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 29</value>
+    <value>183, 24</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Time passed(sec):</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 270</value>
+    <value>556, 270</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 29</value>
+    <value>150, 24</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Begins in:(sec)</value>
@@ -359,39 +359,33 @@
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>456, 498</value>
+    <value>365, 497</value>
   </data>
   <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 89</value>
+    <value>176, 81</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>884, 487</value>
-  </data>
-  <data name="button3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 98</value>
-  </data>
-  <data name="button3.Text" xml:space="preserve">
-    <value>Records</value>
-  </data>
   <data name="languages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>887, 454</value>
+    <value>783, 360</value>
   </data>
   <data name="languages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 24</value>
+    <value>184, 21</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>871, 389</value>
+  <data name="languages.Text" xml:space="preserve">
+    <value>Choose language</value>
   </data>
-  <data name="button4.Text" xml:space="preserve">
-    <value>Return to menu</value>
+  <data name="ReturnToMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>816, 506</value>
+  </data>
+  <data name="ReturnToMenu.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>977, 585</value>
   </data>
 </root>

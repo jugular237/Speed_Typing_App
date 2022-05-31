@@ -18,6 +18,10 @@ namespace Speed_Typing_App
         Form2 form2 = new Form2();
         public Form1()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture
+               = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            System.Threading.Thread.CurrentThread.CurrentCulture
+                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
         public class Result
@@ -53,7 +57,7 @@ namespace Speed_Typing_App
         TextToPrint textToPrnt = new TextToPrint();
         private void Form1_Load(object sender, EventArgs e)
         {
-            ShowText();
+
             TextPanel.ReadOnly = true;
             textBox1.ReadOnly = true;
             label2.Visible = false;
@@ -98,6 +102,7 @@ namespace Speed_Typing_App
                 label3.Visible = true;
                 label4.Visible = false;
                 timer2.Start();
+                button2.Visible = false;
 
             }
             label1.Text = ticks.ToString();
@@ -130,10 +135,7 @@ namespace Speed_Typing_App
                 sub.ToCharArray();
                 foreach (char c in sub)
                 {
-                    if (c == ' ')
-                    {
-                        input.wordcount++;
-                    }
+                    input.wordcount++;
                 }
                 TextPanel.BackColor = Color.LightGreen;
             }
@@ -169,13 +171,13 @@ namespace Speed_Typing_App
                 misc++;
             double correlem = textToPrnt.TextTPrint.Length - misc;
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
-            double wpm = (((input.wordcount + 1)/input.Time)*60);
+            double wpm = (((input.wordcount/5)/input.Time)*60);
             CheckOnRecord(wpm);
             MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
         }
        
         string[] lines = File.ReadAllLines("records.txt");
-        string[] linesToWrite = new string[7];
+        string[] linesToWrite = new string[100];
         public void CheckOnRecord(double wpm)
         {
             List<string> list = new List<string>();
@@ -183,7 +185,6 @@ namespace Speed_Typing_App
             int number;
             Result result = new Result((double)wpm, DateTime.Now);
             lines.CopyTo(linesToWrite, 0);
-            ReadRecordsFile();
             for (int i=0; i< linesToWrite.Length; i++)
             {
                 number=0;
@@ -208,33 +209,16 @@ namespace Speed_Typing_App
             }
             File.WriteAllLines("records.txt", list);
         }
-        public void ReadRecordsFile()
-        {
-            lines = File.ReadAllLines("records.txt");
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            timer1.Stop();
+            timer1.Start();
+            GenerateSent();
+            TextPanel.Text = textToPrnt.TextTPrint;
         }
 
-        public void PrintRecords()
-        {
-            string[] recordsLines = File.ReadAllLines("records.txt");
-            foreach (string line in recordsLines)
-            {
-                form2.RecordsBox.Text += line + "\n";
-            }
-        }
-        private void RecordsButton_Click_1(object sender, EventArgs e)
-        {
-            form2.Show();
-            PrintRecords();
-        }
-        public void ShowText()
-        {
-           languages.Text = "Обрати мову";
-        }
+       
         void GenerateSent()
         {
             string[] readText = File.ReadAllLines("text.txt");
@@ -254,7 +238,6 @@ namespace Speed_Typing_App
                 Properties.Settings.Default.Language = "uk-UA";
                 Properties.Settings.Default.Save();
                 Application.Restart();
-                languages.Text = "Українська";
             }
             else if (languages.SelectedIndex == 1)
             {
@@ -263,7 +246,6 @@ namespace Speed_Typing_App
                 Properties.Settings.Default.Language = "en-US";
                 Properties.Settings.Default.Save();
                 Application.Restart();
-                languages.Text = "English";
             }
             else if (languages.SelectedIndex == 2)
             {
@@ -272,7 +254,6 @@ namespace Speed_Typing_App
                 Properties.Settings.Default.Language = "ja-JP";
                 Properties.Settings.Default.Save();
                 Application.Restart();
-                languages.Text = "日本";
             }   
         }
         

@@ -72,6 +72,7 @@
             this.start2Button.BackColor = System.Drawing.SystemColors.Info;
             this.start2Button.Name = "start2Button";
             this.start2Button.UseVisualStyleBackColor = false;
+            this.start2Button.Click += new System.EventHandler(this.start2Button_Click);
             // 
             // button1
             // 

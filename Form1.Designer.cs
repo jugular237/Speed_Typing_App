@@ -114,13 +114,13 @@ namespace Speed_Typing_App
             // 
             // languages
             // 
+            resources.ApplyResources(this.languages, "languages");
             this.languages.BackColor = System.Drawing.Color.White;
             this.languages.FormattingEnabled = true;
             this.languages.Items.AddRange(new object[] {
             resources.GetString("languages.Items"),
             resources.GetString("languages.Items1"),
             resources.GetString("languages.Items2")});
-            resources.ApplyResources(this.languages, "languages");
             this.languages.Name = "languages";
             this.languages.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
