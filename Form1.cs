@@ -15,7 +15,7 @@ namespace Speed_Typing_App
         bool flag = true;
         int misc = 0;
         bool lang=false;
-        Form2 form2 = new Form2();
+       
         public Form1()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -174,6 +174,9 @@ namespace Speed_Typing_App
             double wpm = (((input.wordcount/5)/input.Time)*60);
             CheckOnRecord(wpm);
             MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
+            Form1 form = new Form1();
+            this.Hide();
+            form.Show();
         }
        
         string[] lines = File.ReadAllLines("records.txt");

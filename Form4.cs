@@ -17,7 +17,7 @@ namespace Speed_Typing_App
         string text1 = "";
         int length = 0;
         int misc = 0;
-        bool flag = true;
+        
         bool fl = true, fl1 = true;
         Input input = new Input();
         TextToPrint textToPrnt = new TextToPrint();
@@ -42,12 +42,24 @@ namespace Speed_Typing_App
                 set { time = value; }
             }
         }
+        public class Result
+        {
+            public readonly double words;
+
+            public readonly DateTime date;
+
+            public Result(double words, DateTime date)
+            {
+                this.words = words;
+                this.date = date;
+            }
+        }
         void GenerateSent()
         {
-                string[] readText = File.ReadAllLines("words.txt");
-                Random random = new Random();
-                int i = random.Next(readText.Length);
-                    textToPrnt.TextTPrint = readText[i];
+            string[] readText = File.ReadAllLines("words.txt");
+            Random random = new Random();
+            int i = random.Next(readText.Length);
+            textToPrnt.TextTPrint = readText[i];
         }
  
         private void TextPanel_TextChanged(object sender, EventArgs e)
@@ -102,10 +114,44 @@ namespace Speed_Typing_App
                 timer2.Stop();
                 label3.Visible=false;
                 label2.Visible=false;
+                CheckOnRecord(input.wordcount);
                 Print(input);
+                
+                
             }
         }
-
+        string[] lines = File.ReadAllLines("WOSrecords.txt");
+        string[] linesToWrite = new string[10];
+        public void CheckOnRecord(double wordsAmount)
+        {
+            List<string> list = new List<string>();
+            bool swap = false;
+            int number;
+            lines.CopyTo(linesToWrite, 0);
+            for (int i = 0; i < linesToWrite.Length; i++)
+            {
+                number = 0;
+                if (!string.IsNullOrEmpty(linesToWrite[i]))
+                {
+                    string[] words = linesToWrite[i].Split(' ');
+                    number = int.Parse(words[0]);
+                }
+                if (swap)
+                {
+                    list.Add(linesToWrite[i - 1]);
+                }
+                if (wordsAmount > number && !swap)
+                {
+                    swap = true;
+                    list.Add($"{wordsAmount} words : {DateTime.Now.ToShortDateString()}");
+                }
+                else if (!swap)
+                {
+                    list.Add(linesToWrite[i]);
+                }
+            }
+            File.WriteAllLines("WOSrecords.txt", list);
+        }
         private void timer2_Tick(object sender, EventArgs e)
         {
             ticks1--;
@@ -119,7 +165,7 @@ namespace Speed_Typing_App
             string sub="";
             try
             {
-                fl1 = true;
+                 fl1 = true;
                  sub = textToPrnt.TextTPrint.Substring(0, lng);
             }
             catch
@@ -170,6 +216,9 @@ namespace Speed_Typing_App
         void Print(Input input)
         {
             MessageBox.Show($"Введено слів:{input.wordcount:f0}\n Помилок:{misc:f0}");
+            Form4 form = new Form4();
+            this.Hide();
+            form.Show();
         }
 
         private void ReturnToMenu_Click_1(object sender, EventArgs e)

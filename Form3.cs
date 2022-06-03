@@ -38,10 +38,16 @@ namespace Speed_Typing_App
             Form2 form2 = new Form2();
             form2.Show();
             string[] recordsLines = File.ReadAllLines("records.txt");
+            string[] wosRecordsLines = File.ReadAllLines("WOSrecords.txt");
             foreach (string line in recordsLines)
             {
                 form2.RecordsBox.Text += line + "\n";
             }
+            foreach(string line in wosRecordsLines)
+            {
+                form2.WOSRecords.Text += line + "\n";
+            }
+            form2.RecordsBox.ReadOnly = true;
             form2.RecordsBox.ReadOnly = true;
             form2.label1.Focus();
         }

@@ -36,5 +36,10 @@ namespace Speed_Typing_App
         {
 
         }
+
+        private void WOSRecords_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
