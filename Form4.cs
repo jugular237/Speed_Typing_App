@@ -12,7 +12,8 @@ namespace Speed_Typing_App
     public partial class Form4 : Form
     {
         int ticks = 6;
-        int ticks1;
+        int ticks1 = 20;
+       
         string text1 = "";
         int length = 0;
         int misc = 0;
@@ -69,7 +70,6 @@ namespace Speed_Typing_App
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ticks1 = (int)numericUpDown1.Value;
             label4.Visible = true;
             label1.Visible = true;
             timer1.Start();
@@ -177,6 +177,15 @@ namespace Speed_Typing_App
             Form3 form3 = new Form3();
             this.Hide();
             form3.Show();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            label4.Visible = true;
+            label1.Visible = true;
+            timer1.Start();
+            GenerateSent();
+            TextPanel.Text = textToPrnt.TextTPrint;
         }
 
         private void ReturnToMenu_Click(object sender, EventArgs e)
