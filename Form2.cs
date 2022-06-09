@@ -19,27 +19,6 @@ namespace Speed_Typing_App
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void RecordsBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WOSRecords_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

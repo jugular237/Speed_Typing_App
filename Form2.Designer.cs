@@ -42,7 +42,6 @@
             this.RecordsBox.Size = new System.Drawing.Size(333, 278);
             this.RecordsBox.TabIndex = 2;
             this.RecordsBox.Text = "";
-            this.RecordsBox.TextChanged += new System.EventHandler(this.RecordsBox_TextChanged);
             // 
             // label1
             // 
@@ -60,7 +59,6 @@
             this.WOSRecords.Size = new System.Drawing.Size(327, 278);
             this.WOSRecords.TabIndex = 4;
             this.WOSRecords.Text = "";
-            this.WOSRecords.TextChanged += new System.EventHandler(this.WOSRecords_TextChanged);
             // 
             // Form2
             // 

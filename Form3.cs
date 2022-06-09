@@ -15,7 +15,6 @@ namespace Speed_Typing_App
 {
     public partial class Form3 : Form
     {
-      
         public Form3()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -24,15 +23,24 @@ namespace Speed_Typing_App
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
+        //загальні змінні
         bool lang = false;
         Form1 form1 = new Form1();
         Form4 form4 = new Form4();
+        //класичний режим
         private void startButton_Click(object sender, EventArgs e)
         {
             form1.Show();
             this.Hide();
         }
-    
+        //WOS режим
+        private void start2Button_Click(object sender, EventArgs e)
+        {
+            form4.Show();
+            this.Hide();
+        }
+
+        //метод для зчитування даних із файлу і запису рекордів у форму
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -51,7 +59,7 @@ namespace Speed_Typing_App
             form2.RecordsBox.ReadOnly = true;
             form2.label1.Focus();
         }
-
+        //локалізація
         private void languages_SelectedIndexChanged(object sender, EventArgs e)
         {
             lang = true;
@@ -83,16 +91,11 @@ namespace Speed_Typing_App
                 languages.Text = "日本";
             }
         }
-
+        //вихід
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void start2Button_Click(object sender, EventArgs e)
-        {
-            form4.Show();
-            this.Hide();
-        }
+       
     }
 }

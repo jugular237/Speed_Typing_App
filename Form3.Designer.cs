@@ -42,42 +42,42 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.startButton);
             this.groupBox1.Controls.Add(this.start2Button);
             this.groupBox1.Controls.Add(this.button1);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // button2
             // 
-            resources.ApplyResources(this.button2, "button2");
             this.button2.BackColor = System.Drawing.SystemColors.Info;
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // startButton
             // 
-            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.BackColor = System.Drawing.SystemColors.Info;
+            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.Name = "startButton";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // start2Button
             // 
-            resources.ApplyResources(this.start2Button, "start2Button");
             this.start2Button.BackColor = System.Drawing.SystemColors.Info;
+            resources.ApplyResources(this.start2Button, "start2Button");
             this.start2Button.Name = "start2Button";
             this.start2Button.UseVisualStyleBackColor = false;
             this.start2Button.Click += new System.EventHandler(this.start2Button_Click);
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.SystemColors.Info;
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -97,13 +97,13 @@
             // 
             // languages
             // 
-            resources.ApplyResources(this.languages, "languages");
             this.languages.BackColor = System.Drawing.SystemColors.Info;
             this.languages.FormattingEnabled = true;
             this.languages.Items.AddRange(new object[] {
             resources.GetString("languages.Items"),
             resources.GetString("languages.Items1"),
             resources.GetString("languages.Items2")});
+            resources.ApplyResources(this.languages, "languages");
             this.languages.Name = "languages";
             this.languages.SelectedIndexChanged += new System.EventHandler(this.languages_SelectedIndexChanged);
             // 

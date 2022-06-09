@@ -10,20 +10,7 @@ namespace Speed_Typing_App
 
     public partial class Form1 : Form
     {
-        int ticks = 6;
-        int ticks1 = 0;
-        bool flag = true;
-        int misc = 0;
-        bool lang=false;
-       
-        public Form1()
-        {
-            System.Threading.Thread.CurrentThread.CurrentUICulture
-               = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-            System.Threading.Thread.CurrentThread.CurrentCulture
-                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-            InitializeComponent();
-        }
+        //основні класси:
         public class Result
         {
             public readonly double wpmRes;
@@ -36,7 +23,6 @@ namespace Speed_Typing_App
                 this.date = date;
             }
         }
-        
         public class TextToPrint
         {
             public string TextTPrint { get; set; }
@@ -54,40 +40,35 @@ namespace Speed_Typing_App
                 set { time = value; }
             }
         }
+        //загальні змінні:
+        string[] lines = File.ReadAllLines("records.txt");
+        string[] linesToWrite = new string[100];
+        int ticks = 6;
+        int ticks1 = 0;
+        bool flag = true;
+        int misc = 0;
+        bool lang = false;
+        string text1 = "";
+        int length = 0;
         TextToPrint textToPrnt = new TextToPrint();
+        public Form1()
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture
+               = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            System.Threading.Thread.CurrentThread.CurrentCulture
+                = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            InitializeComponent();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
             TextPanel.ReadOnly = true;
             textBox1.ReadOnly = true;
             label2.Visible = false;
-            label3.Visible=false;
+            label3.Visible = false;
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawString(Text, new Font("Times new Roman", 46, FontStyle.Regular), 
-                Brushes.Black, new PointF(50, 50));
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+       //метод для тіка першого таймеру(таймер відліку)
         private void timer1_Tick(object sender, EventArgs e)
         {
             Input input = new Input();
@@ -106,15 +87,17 @@ namespace Speed_Typing_App
 
             }
             label1.Text = ticks.ToString();
-            ChangeClr1(TextPanel,input);
+            ChangeClr1(TextPanel, input);
             CheckOnEnd(input);
         }
+        //метод для тіка другого таймера(таймер під час гри)
         private void timer2_Tick(object sender, EventArgs e)
         {
             ticks1++;
             timer2.Interval = 1000;
             label2.Text = ticks1.ToString();
         }
+        //початок гри
         private void button1_Click(object sender, EventArgs e)
         {
             label4.Visible = true;
@@ -122,13 +105,12 @@ namespace Speed_Typing_App
             GenerateSent();
             TextPanel.Text = textToPrnt.TextTPrint;
         }
-        string text1 = "";
-        int length = 0;
+        //метод для перевірки правильності вводу
         void ChangeClr1(RichTextBox TextPanel, Input input)
         {
             input.Text = textBox1.Text;
             int lng = input.Text.Length;
-            string sub=textToPrnt.TextTPrint.Substring(0, lng);
+            string sub = textToPrnt.TextTPrint.Substring(0, lng);
             string text2 = input.Text;
             if (sub == input.Text)
             {
@@ -139,23 +121,24 @@ namespace Speed_Typing_App
                 }
                 TextPanel.BackColor = Color.LightGreen;
             }
-            else if(sub!= input.Text)
+            else if (sub != input.Text)
             {
                 TextPanel.BackColor = Color.LightCoral;
-                
+
                 if (text1 != text2 && length > lng)
                 {
-                    misc ++;
+                    misc++;
                 }
             }
             text1 = input.Text;
             length = lng;
         }
+        //метод для перевірки кінця гри
         void CheckOnEnd(Input input)
         {
             input.Text = textBox1.Text;
-            if (input.Text.Length == textToPrnt.TextTPrint.Length 
-                && input.Text == textToPrnt.TextTPrint 
+            if (input.Text.Length == textToPrnt.TextTPrint.Length
+                && input.Text == textToPrnt.TextTPrint
                 && flag == true)
             {
                 flag = false;
@@ -165,22 +148,21 @@ namespace Speed_Typing_App
                 Print(input);
             }
         }
+        //метод для для обчислення значень wpm та accuracy та виводу інформації
         void Print(Input input)
         {
             if (misc > 0)
                 misc++;
             double correlem = textToPrnt.TextTPrint.Length - misc;
             input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
-            double wpm = (((input.wordcount/5)/input.Time)*60);
+            double wpm = (((input.wordcount / 5) / input.Time) * 60);
             CheckOnRecord(wpm);
             MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
             Form1 form = new Form1();
             this.Hide();
             form.Show();
         }
-       
-        string[] lines = File.ReadAllLines("records.txt");
-        string[] linesToWrite = new string[100];
+        //метод для обробки результату та запису у файл
         public void CheckOnRecord(double wpm)
         {
             List<string> list = new List<string>();
@@ -188,9 +170,9 @@ namespace Speed_Typing_App
             int number;
             Result result = new Result((double)wpm, DateTime.Now);
             lines.CopyTo(linesToWrite, 0);
-            for (int i=0; i< linesToWrite.Length; i++)
+            for (int i = 0; i < linesToWrite.Length; i++)
             {
-                number=0;
+                number = 0;
                 if (!string.IsNullOrEmpty(linesToWrite[i]))
                 {
                     string[] words = linesToWrite[i].Split(' ');
@@ -198,7 +180,7 @@ namespace Speed_Typing_App
                 }
                 if (swap)
                 {
-                    list.Add(linesToWrite[i-1]);
+                    list.Add(linesToWrite[i - 1]);
                 }
                 if (result.wpmRes > number && !swap)
                 {
@@ -212,7 +194,7 @@ namespace Speed_Typing_App
             }
             File.WriteAllLines("records.txt", list);
         }
-
+        //зміна тексту для вводу
         private void button2_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -220,46 +202,15 @@ namespace Speed_Typing_App
             GenerateSent();
             TextPanel.Text = textToPrnt.TextTPrint;
         }
-
-       
+        //метод для генерації тексту для вводу
         void GenerateSent()
         {
             string[] readText = File.ReadAllLines("text.txt");
             Random random = new Random();
             int i = random.Next(readText.Length);
-            textToPrnt.TextTPrint=readText[i];
+            textToPrnt.TextTPrint = readText[i];
         }
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lang = true;
-            if (languages.SelectedIndex == 0 && lang)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk-UA");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("uk-UA");
-                Properties.Settings.Default.Language = "uk-UA";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }
-            else if (languages.SelectedIndex == 1)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }
-            else if (languages.SelectedIndex == 2)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
-                Properties.Settings.Default.Language = "ja-JP";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }   
-        }
-        
+       //в меню
         private void ReturnToMenu_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
@@ -268,4 +219,4 @@ namespace Speed_Typing_App
         }
     }
 }
-    
+
