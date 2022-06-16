@@ -11,49 +11,29 @@ namespace Speed_Typing_App
 {
     public partial class Form4 : Form
     {
-        int ticks = 6;
-        int ticks1 = 20;
+        PlayersInput input = new PlayersInput();
+        TextToPrint textToPrnt = new TextToPrint();
+
+        const int recordsLength = 10;
+        string[] lines = File.ReadAllLines("WOSrecords.txt");
+        string[] linesToWrite = new string[recordsLength];
+
+        int ticksTimerToStart = 6;
+        int ticksTimerToEnd = 20;
        
         string text1 = "";
         int length = 0;
-        int misc = 0;
+        int mistakes = 0;
         
         bool fl = true, fl1 = true;
-        Input input = new Input();
-        TextToPrint textToPrnt = new TextToPrint();
+        
         public Form4()
         {
             InitializeComponent();
         }
-        public class TextToPrint
-        {
-            public string TextTPrint { get; set; }
-            public int SymbCount = 0;
-        }
-        public class Input
-        {
-            public string Text;
-            public double acc;
-            public double wordcount = 0;
-            public double time;
-            public double Time
-            {
-                get { return time; }
-                set { time = value; }
-            }
-        }
-        public class Result
-        {
-            public readonly double words;
-
-            public readonly DateTime date;
-
-            public Result(double words, DateTime date)
-            {
-                this.words = words;
-                this.date = date;
-            }
-        }
+        
+        
+        
         void GenerateSent()
         {
             string[] readText = File.ReadAllLines("words.txt");
@@ -92,9 +72,9 @@ namespace Speed_Typing_App
         private void timer1_Tick(object sender, EventArgs e)
         {
            
-            ticks--;
+            ticksTimerToStart--;
             timer1.Interval = 1000;
-            if (ticks < 0&&fl==true)
+            if (ticksTimerToStart < 0&&fl==true)
             {
                 timer1.Interval = 1;
                 label1.Visible = false;
@@ -105,23 +85,22 @@ namespace Speed_Typing_App
                 timer2.Start();
 
             }
-            label1.Text = ticks.ToString();
+            label1.Text = ticksTimerToStart.ToString();
             ChangeClr1(TextPanel, input);
             CheckOnEnd(input);
-            if (ticks1 < 1&&fl==true)
+            if (ticksTimerToEnd < 1&&fl==true)
             {
                 fl = false;
                 timer2.Stop();
                 label3.Visible=false;
                 label2.Visible=false;
-                CheckOnRecord(input.wordcount);
+                CheckOnRecord(input.Wordcount);
                 Print(input);
                 
                 
             }
         }
-        string[] lines = File.ReadAllLines("WOSrecords.txt");
-        string[] linesToWrite = new string[10];
+ 
         public void CheckOnRecord(double wordsAmount)
         {
             List<string> list = new List<string>();
@@ -154,19 +133,19 @@ namespace Speed_Typing_App
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
-            ticks1--;
+            ticksTimerToEnd--;
             timer2.Interval = 1000;
-            label2.Text = ticks1.ToString();
+            label2.Text = ticksTimerToEnd.ToString();
         }
-        void ChangeClr1(RichTextBox TextPanel, Input input)
+        void ChangeClr1(RichTextBox TextPanel, PlayersInput input)
         {
             input.Text = textBox1.Text;
             int lng = input.Text.Length;
-            string sub="";
+            string substring="";
             try
             {
                  fl1 = true;
-                 sub = textToPrnt.TextTPrint.Substring(0, lng);
+                 substring = textToPrnt.TextTPrint.Substring(0, lng);
             }
             catch
             {
@@ -181,31 +160,28 @@ namespace Speed_Typing_App
                 timer2.Enabled = true;
             }
             string text2 = input.Text;
-            if (sub == input.Text)
+            if (substring == input.Text)
             {
                 TextPanel.BackColor = Color.LightGreen;
             }
-            else if (sub != input.Text)
+            else
             {
                 TextPanel.BackColor = Color.LightCoral;
-
                 if (text1 != text2 && length > lng)
-                {
-                    misc++;
-                }
+                    mistakes++;
             }
             text1 = input.Text;
             length = lng;
         }
-        void CheckOnEnd(Input input)
+        void CheckOnEnd(PlayersInput input)
         {
             input.Text = textBox1.Text;
             if (input.Text.Length == textToPrnt.TextTPrint.Length
                 && input.Text == textToPrnt.TextTPrint)
             {
-                if (ticks1 >= 0)
+                if (ticksTimerToEnd >= 0)
                 {
-                    input.wordcount++;
+                    input.Wordcount++;
                     textBox1.Text = null;
                     GenerateSent();
                     TextPanel.Text = textToPrnt.TextTPrint;
@@ -213,9 +189,9 @@ namespace Speed_Typing_App
                
             }
         }
-        void Print(Input input)
+        void Print(PlayersInput input)
         {
-            MessageBox.Show($"Введено слів:{input.wordcount:f0}\n Помилок:{misc:f0}");
+            MessageBox.Show($"Введено слів:{input.Wordcount:f0}\n Помилок:{mistakes:f0}");
             Form4 form = new Form4();
             this.Hide();
             form.Show();

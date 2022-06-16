@@ -10,12 +10,21 @@ namespace Speed_Typing_App
 
     public partial class Form1 : Form
     {
-        int ticks = 6;
-        int ticks1 = 0;
-        bool flag = true;
-        int misc = 0;
-        bool lang=false;
-       
+        TextToPrint textToPrnt = new TextToPrint();
+
+        int ticksTimerToStart = 6;
+        int ticksTimerToWrite = 0;
+
+        bool reachedEnd = true;
+        bool defaultLanguage = false;
+
+        int mistakes = 0;
+        const int records1Number = 100;
+        const int delayInMlseconds = 1000;
+        
+        string[] lines = File.ReadAllLines("records.txt");
+        string[] linesToWrite = new string[records1Number];
+
         public Form1()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -24,43 +33,12 @@ namespace Speed_Typing_App
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
-        public class Result
-        {
-            public readonly double wpmRes;
-
-            public readonly DateTime date;
-
-            public Result(double wpm, DateTime date)
-            {
-                wpmRes = wpm;
-                this.date = date;
-            }
-        }
         
-        public class TextToPrint
-        {
-            public string TextTPrint { get; set; }
-            public int SymbCount = 0;
-        }
-        public class Input
-        {
-            public string Text;
-            public double acc;
-            public double wordcount = 0;
-            public double time;
-            public double Time
-            {
-                get { return time; }
-                set { time = value; }
-            }
-        }
-        TextToPrint textToPrnt = new TextToPrint();
         private void Form1_Load(object sender, EventArgs e)
         {
-
             TextPanel.ReadOnly = true;
             textBox1.ReadOnly = true;
-            label2.Visible = false;
+            labelTimerToWrite.Visible = false;
             label3.Visible=false;
         }
 
@@ -68,7 +46,6 @@ namespace Speed_Typing_App
         {
             e.Graphics.DrawString(Text, new Font("Times new Roman", 46, FontStyle.Regular), 
                 Brushes.Black, new PointF(50, 50));
-
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -90,97 +67,94 @@ namespace Speed_Typing_App
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Input input = new Input();
-            ticks--;
-            timer1.Interval = 1000;
-            if (ticks < 0)
+            PlayersInput input = new PlayersInput();
+            ticksTimerToStart--;
+            timerToStart.Interval = delayInMlseconds;
+            if (ticksTimerToStart < 0)
             {
-                timer1.Interval = 1;
+                timerToStart.Interval = 1;
                 label1.Visible = false;
                 textBox1.ReadOnly = false;
-                label2.Visible = true;
+                labelTimerToWrite.Visible = true;
                 label3.Visible = true;
-                label4.Visible = false;
-                timer2.Start();
+                labelTimerToStart.Visible = false;
+                timerToWrite.Start();
                 button2.Visible = false;
 
             }
-            label1.Text = ticks.ToString();
-            ChangeClr1(TextPanel,input);
+            label1.Text = ticksTimerToStart.ToString();
+            ChangeClr1(TextPanel, input);
             CheckOnEnd(input);
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
-            ticks1++;
-            timer2.Interval = 1000;
-            label2.Text = ticks1.ToString();
+            ticksTimerToWrite++;
+            timerToWrite.Interval = 1000;
+            labelTimerToWrite.Text = ticksTimerToWrite.ToString();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            label4.Visible = true;
-            timer1.Start();
+            labelTimerToStart.Visible = true;
+            timerToStart.Start();
             GenerateSent();
             TextPanel.Text = textToPrnt.TextTPrint;
         }
-        string text1 = "";
+        string textCopy = "";
         int length = 0;
-        void ChangeClr1(RichTextBox TextPanel, Input input)
+        void ChangeClr1(RichTextBox TextPanel, PlayersInput input)
         {
             input.Text = textBox1.Text;
-            int lng = input.Text.Length;
-            string sub=textToPrnt.TextTPrint.Substring(0, lng);
-            string text2 = input.Text;
-            if (sub == input.Text)
-            {
-                sub.ToCharArray();
-                foreach (char c in sub)
-                {
-                    input.wordcount++;
-                }
-                TextPanel.BackColor = Color.LightGreen;
-            }
-            else if(sub!= input.Text)
-            {
-                TextPanel.BackColor = Color.LightCoral;
-                
-                if (text1 != text2 && length > lng)
-                {
-                    misc ++;
-                }
-            }
-            text1 = input.Text;
-            length = lng;
+            int inputLngth = input.Text.Length;
+            string substring = textToPrnt.TextTPrint.Substring(0, inputLngth);
+            string plyrsInput = input.Text;
+            if (substring == input.Text)
+                InputIsCorrect(substring, ref input);
+            else
+                InputIsWrong(plyrsInput, inputLngth);
+            textCopy = input.Text;
+            length = inputLngth;
         }
-        void CheckOnEnd(Input input)
+        void InputIsCorrect(string sub, ref PlayersInput input)
+        {
+            foreach (var letter in sub)
+                input.Wordcount++;
+            TextPanel.BackColor = Color.LightGreen;
+        }
+        void InputIsWrong(string playersInput, int inputLngth)
+        {
+            if (textCopy != playersInput && length > inputLngth)
+                mistakes++;
+            TextPanel.BackColor = Color.LightCoral;
+        }
+        void CheckOnEnd(PlayersInput input)
         {
             input.Text = textBox1.Text;
-            if (input.Text.Length == textToPrnt.TextTPrint.Length 
-                && input.Text == textToPrnt.TextTPrint 
-                && flag == true)
+            bool checkLngthSize = input.Text.Length == textToPrnt.TextTPrint.Length;
+            bool checkText = input.Text == textToPrnt.TextTPrint;
+            if (checkLngthSize && checkText && reachedEnd)
             {
-                flag = false;
-                timer1.Stop();
-                timer2.Stop();
-                input.Time = ticks1;
+                reachedEnd = false;
+                timerToStart.Stop();
+                timerToWrite.Stop();
+                input.Time = ticksTimerToWrite;
                 Print(input);
             }
         }
-        void Print(Input input)
+        void Print(PlayersInput input)
         {
-            if (misc > 0)
-                misc++;
-            double correlem = textToPrnt.TextTPrint.Length - misc;
-            input.acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
-            double wpm = (((input.wordcount/5)/input.Time)*60);
+            if (mistakes > 0)
+                mistakes++;
+            double correlem = textToPrnt.TextTPrint.Length - mistakes;
+            input.Acc = (correlem / textToPrnt.TextTPrint.Length) * 100.0;
+            double wpm = (((input.Wordcount/5)/input.Time)*60);
             CheckOnRecord(wpm);
-            MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.acc:f1}%");
+            MessageBox.Show($"Швидкість,слів в хвилину(WPM):{wpm:f0}\nТочність(accuracy)={input.Acc:f1}%");
             Form1 form = new Form1();
             this.Hide();
             form.Show();
         }
        
-        string[] lines = File.ReadAllLines("records.txt");
-        string[] linesToWrite = new string[100];
+      
         public void CheckOnRecord(double wpm)
         {
             List<string> list = new List<string>();
@@ -215,8 +189,8 @@ namespace Speed_Typing_App
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            timer1.Start();
+            timerToStart.Stop();
+            timerToStart.Start();
             GenerateSent();
             TextPanel.Text = textToPrnt.TextTPrint;
         }
@@ -230,34 +204,23 @@ namespace Speed_Typing_App
             textToPrnt.TextTPrint=readText[i];
         }
 
-
+        void SetLanguage(string language_Country)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(language_Country);
+            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(language_Country);
+            Properties.Settings.Default.Language = language_Country;
+            Properties.Settings.Default.Save();
+            Application.Restart();
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lang = true;
-            if (languages.SelectedIndex == 0 && lang)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk-UA");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("uk-UA");
-                Properties.Settings.Default.Language = "uk-UA";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }
+            defaultLanguage = true;
+            if (languages.SelectedIndex == 0 && defaultLanguage)
+                SetLanguage("uk-UA");
             else if (languages.SelectedIndex == 1)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }
+                SetLanguage("en-US");
             else if (languages.SelectedIndex == 2)
-            {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
-                Properties.Settings.Default.Language = "ja-JP";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-            }   
+                SetLanguage("ja-JP");
         }
         
         private void ReturnToMenu_Click(object sender, EventArgs e)

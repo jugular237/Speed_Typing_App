@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\bin\Debug\netcoreapp3.1\LibraryCl.deps.json
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\bin\Debug\netcoreapp3.1\LibraryCl.dll
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\bin\Debug\netcoreapp3.1\LibraryCl.pdb
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.AssemblyInfo.cs
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.dll
+C:\Users\User\source\repos\Speed_Typing_App\LibraryCl\LibraryCl\obj\Debug\netcoreapp3.1\LibraryCl.pdb

@@ -15,7 +15,11 @@ namespace Speed_Typing_App
 {
     public partial class Form3 : Form
     {
-      
+        Form1 form1 = new Form1();
+        Form4 form4 = new Form4();
+
+        bool language = false;
+        
         public Form3()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -24,9 +28,7 @@ namespace Speed_Typing_App
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
-        bool lang = false;
-        Form1 form1 = new Form1();
-        Form4 form4 = new Form4();
+        
         private void startButton_Click(object sender, EventArgs e)
         {
             form1.Show();
@@ -37,49 +39,46 @@ namespace Speed_Typing_App
         {
             Form2 form2 = new Form2();
             form2.Show();
+            ReadRecords(form2);
+        }
+
+        private void ReadRecords(Form2 form2)
+        {
             string[] recordsLines = File.ReadAllLines("records.txt");
             string[] wosRecordsLines = File.ReadAllLines("WOSrecords.txt");
             foreach (string line in recordsLines)
-            {
                 form2.RecordsBox.Text += line + "\n";
-            }
-            foreach(string line in wosRecordsLines)
-            {
+            foreach (string line in wosRecordsLines)
                 form2.WOSRecords.Text += line + "\n";
-            }
             form2.RecordsBox.ReadOnly = true;
             form2.RecordsBox.ReadOnly = true;
             form2.label1.Focus();
         }
 
+        void SetLanguage(string language_Country)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(language_Country);
+            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(language_Country);
+            Properties.Settings.Default.Language = language_Country;
+            Properties.Settings.Default.Save();
+            Application.Restart();
+        }
         private void languages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lang = true;
-            if (languages.SelectedIndex == 0 && lang)
+            language = true;
+            if (languages.SelectedIndex == 0 && language) 
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk-UA");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("uk-UA");
-                Properties.Settings.Default.Language = "uk-UA";
-                Properties.Settings.Default.Save();
-                Application.Restart();
+                SetLanguage("uk-UA");
                 languages.Text = "Українська";
             }
             else if (languages.SelectedIndex == 1)
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";
-                Properties.Settings.Default.Save();
-                Application.Restart();
+                SetLanguage("en-US");
                 languages.Text = "English";
             }
             else if (languages.SelectedIndex == 2)
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
-                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ja-JP");
-                Properties.Settings.Default.Language = "ja-JP";
-                Properties.Settings.Default.Save();
-                Application.Restart();
+                SetLanguage("ja-JP");
                 languages.Text = "日本";
             }
         }
@@ -93,6 +92,11 @@ namespace Speed_Typing_App
         {
             form4.Show();
             this.Hide();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

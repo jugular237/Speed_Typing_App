@@ -37,7 +37,7 @@
             // 
             this.RecordsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
             this.RecordsBox.Location = new System.Drawing.Point(13, 105);
-            this.RecordsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RecordsBox.Margin = new System.Windows.Forms.Padding(4);
             this.RecordsBox.Name = "RecordsBox";
             this.RecordsBox.Size = new System.Drawing.Size(333, 278);
             this.RecordsBox.TabIndex = 2;
@@ -71,10 +71,11 @@
             this.Controls.Add(this.WOSRecords);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RecordsBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "рекорди";
+            this.Load += new System.EventHandler(this.Form2_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

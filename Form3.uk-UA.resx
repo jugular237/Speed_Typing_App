@@ -117,38 +117,114 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 368</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 87</value>
+  </data>
   <data name="button2.Text" xml:space="preserve">
     <value>ВИЙТИ</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="startButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Goudy Stout, 14.25pt</value>
+  </data>
+  <data name="startButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 84</value>
+  </data>
+  <data name="startButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="startButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 87</value>
   </data>
   <data name="startButton.Text" xml:space="preserve">
     <value>ГРАТИ(КЛАСИЧНИЙ РЕЖИМ)</value>
   </data>
+  <data name="start2Button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 178</value>
+  </data>
+  <data name="start2Button.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="start2Button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 87</value>
+  </data>
   <data name="start2Button.Text" xml:space="preserve">
     <value>ГРАТИ(WOS РЕЖИМ)</value>
   </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 273</value>
+  </data>
+  <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 87</value>
+  </data>
   <data name="button1.Text" xml:space="preserve">
     <value>РЕКОРДИ</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 169</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1064, 516</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Головне меню</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>390, 11</value>
+    <value>520, 14</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 34</value>
+    <value>253, 42</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Раді зустріти у</value>
   </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 79</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 73</value>
+  </data>
+  <data name="languages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1160, 14</value>
+  </data>
+  <data name="languages.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="languages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
   <data name="languages.Text" xml:space="preserve">
     <value>Обрати мову</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1004, 613</value>
+    <value>1339, 754</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
 </root>

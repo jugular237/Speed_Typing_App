@@ -1,0 +1,12 @@
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\bin\Debug\net5.0-windows\ClassLibrary.deps.json
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\bin\Debug\net5.0-windows\ClassLibrary.dll
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\bin\Debug\net5.0-windows\ref\ClassLibrary.dll
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\bin\Debug\net5.0-windows\ClassLibrary.pdb
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.AssemblyInfo.cs
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.dll
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ref\ClassLibrary.dll
+C:\Users\User\source\repos\Speed_Typing_App\classLibrary\ClassLibrary\obj\Debug\net5.0-windows\ClassLibrary.pdb

@@ -90,9 +90,6 @@ C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\ja-JP\Spee
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\ru-UA\Speed_Typing_App.resources.dll
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\uk\Speed_Typing_App.resources.dll
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.CopyComplete
-C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\Newtonsoft.Json.dll
-C:\Users\User\source\repos\Speed_Typing_App\bin\Debug\Newtonsoft.Json.xml
-C:\Users\User\source\repos\Speed_Typing_App\obj\Debug\Speed_Typing_App.csproj.CopyComplete
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.resources
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.en-US.resources
 C:\Users\bakma\source\repos\курсова\Speed_Typing_App\obj\Debug\Speed_Typing_App.Form3.ja-JP.resources
