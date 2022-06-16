@@ -98,5 +98,10 @@ namespace Speed_Typing_App
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
