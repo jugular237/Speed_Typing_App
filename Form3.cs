@@ -15,11 +15,14 @@ namespace Speed_Typing_App
 {
     public partial class Form3 : Form
     {
+<<<<<<< HEAD
         Form1 form1 = new Form1();
         Form4 form4 = new Form4();
 
         bool language = false;
         
+=======
+>>>>>>> 7be850ff5147df191a90368769588dc2969d2b29
         public Form3()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture
@@ -28,13 +31,28 @@ namespace Speed_Typing_App
                 = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             InitializeComponent();
         }
+<<<<<<< HEAD
         
+=======
+        //загальні змінні
+        bool lang = false;
+        Form1 form1 = new Form1();
+        Form4 form4 = new Form4();
+        //класичний режим
+>>>>>>> 7be850ff5147df191a90368769588dc2969d2b29
         private void startButton_Click(object sender, EventArgs e)
         {
             form1.Show();
             this.Hide();
         }
-    
+        //WOS режим
+        private void start2Button_Click(object sender, EventArgs e)
+        {
+            form4.Show();
+            this.Hide();
+        }
+
+        //метод для зчитування даних із файлу і запису рекордів у форму
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -54,6 +72,7 @@ namespace Speed_Typing_App
             form2.RecordsBox.ReadOnly = true;
             form2.label1.Focus();
         }
+<<<<<<< HEAD
 
         void SetLanguage(string language_Country)
         {
@@ -63,6 +82,9 @@ namespace Speed_Typing_App
             Properties.Settings.Default.Save();
             Application.Restart();
         }
+=======
+        //локалізація
+>>>>>>> 7be850ff5147df191a90368769588dc2969d2b29
         private void languages_SelectedIndexChanged(object sender, EventArgs e)
         {
             language = true;
@@ -82,11 +104,12 @@ namespace Speed_Typing_App
                 languages.Text = "日本";
             }
         }
-
+        //вихід
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+<<<<<<< HEAD
 
         private void start2Button_Click(object sender, EventArgs e)
         {
@@ -103,5 +126,8 @@ namespace Speed_Typing_App
         {
 
         }
+=======
+       
+>>>>>>> 7be850ff5147df191a90368769588dc2969d2b29
     }
 }

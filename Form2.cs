@@ -10,6 +10,7 @@ namespace Speed_Typing_App
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void Form2_Load(object sender, EventArgs e)
         {
             
@@ -37,5 +38,8 @@ namespace Speed_Typing_App
         {
 
         }
+=======
+      
+>>>>>>> 7be850ff5147df191a90368769588dc2969d2b29
     }
 }

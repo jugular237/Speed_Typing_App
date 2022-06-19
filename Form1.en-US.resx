@@ -370,15 +370,6 @@
   <data name="button2.Text" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="languages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>783, 360</value>
-  </data>
-  <data name="languages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 21</value>
-  </data>
-  <data name="languages.Text" xml:space="preserve">
-    <value>Choose language</value>
-  </data>
   <data name="ReturnToMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>816, 506</value>
   </data>

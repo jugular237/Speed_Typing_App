@@ -5,7 +5,17 @@
       "ProjectGuid": "bb3ff358-c38d-4ea9-8056-d759d57bac9c",
       "DisplayName": "Speed_Typing_App",
       "ColorIndex": 0
+    },
+    "d5f01d00-f7c4-4a32-9a5d-dfea8d339d21": {
+      "ProjectGuid": "d5f01d00-f7c4-4a32-9a5d-dfea8d339d21",
+      "DisplayName": "WinFormsLibrary1",
+      "ColorIndex": 1
+    },
+    "bc406463-40e6-4f3f-be1c-76849c329102": {
+      "ProjectGuid": "bc406463-40e6-4f3f-be1c-76849c329102",
+      "DisplayName": "WinFormsLibrary2",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }
